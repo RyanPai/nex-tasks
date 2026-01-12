@@ -11,7 +11,6 @@ function App() {
   const [totalSeconds, setTotalSeconds] = useState(0);
 
   const onStart = () => {
-    clearCountDown();
     setIsPaused(false);
     if(minutes || seconds) {
       const total = minutes * 60 + seconds;
@@ -49,6 +48,7 @@ function App() {
   }
   
   function countDown() {
+    clearCountDown();
     countDownRef.current = setInterval(() => {
       setTotalSeconds((prev) => {
         if(prev <= 1) {
